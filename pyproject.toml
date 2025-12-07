@@ -9,11 +9,18 @@ build-backend = "setuptools.build_meta"
 # We're not building the project itself
 [tool.setuptools]
 py-modules = ["main", "start"]
+include-package-data = true
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["backends*", "common*", "endpoints*"]
+include = ["backends*", "common*", "endpoints*", "templates*"]
 namespaces = true
+
+[tool.setuptools.package-data]
+"*" = ["*.jinja", "*.txt", "*.yml"]
+
+[tool.setuptools.data-files]
+"." = ["config.yml"]
 
 [project]
 name = "tabbyAPI"
